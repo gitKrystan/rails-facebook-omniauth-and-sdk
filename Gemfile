@@ -10,7 +10,6 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rest-client', '~> 1.8'
-gem "koala", "~> 2.2"
 
 group :development, :test do
   gem 'byebug'

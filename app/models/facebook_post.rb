@@ -1,7 +1,15 @@
 class FacebookPost
   def self.create_post(user_id, user_token, message)
-    @graph = Koala::Facebook::API.new(user_token, ENV['FB_APP_SECRET'])
-    @graph.put_wall_post(message)
+    begin
+      response = RestClient::Request.new(
+        method: :post,
+        url: "https://graph.facebook.com/#{user_id}/feed?message=#{message}&access_token=#{user_token}",
+      ).execute
+    rescue RestClient::BadRequest => error
+      puts '*!***~*~*~**(~(&~(*&(*&&))))'
+      puts JSON.parse(error.response)['message']
+      false
+    end
   end
 end
 

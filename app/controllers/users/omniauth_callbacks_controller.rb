@@ -2,7 +2,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     auth = request.env['omniauth.auth']
     @user = User.from_omniauth(auth)
-    binding.pry
     if @user.persisted?
       sign_in @user
       session['token'] = auth.credentials.token

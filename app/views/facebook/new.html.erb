@@ -1,0 +1,10 @@
+<h1>WOO FACEBOOK</h1>
+
+<%= form_tag('/facebook') do %>
+  <%= label_tag 'message' %><br>
+  <%= text_area_tag 'message', 'I facebooked!', rows: 10, cols: 80 %>
+  <p>
+    Click image to submit your message:
+  </p>
+  <%= image_submit_tag 'allthelogins.jpg' %>
+<% end %>
